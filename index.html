@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <script src="requests.js"></script>
+</head>
+<body>
+    <div id="banner">
+
+    </div>
+    <section id="formContainer">
+        <label for="name">Nombre</label>
+        <input placeholder="Ingresá tu primer nombre" id="name">
+        <label for="secname">Segundo Nombre</label>
+        <input placeholder="Ingresá tu segundo nombre" id="secname">
+        <label for="surname-1">Apellido 1</label>
+        <input placeholder="Ingresá tu apellido N°1" id="surname-1" class="surname">
+        <div id="added-surnames">
+
+        </div>
+        <div id="surname-btns-cont">
+            <a class="elementHide" onclick="removeSurname()" id="remove-surname">Eliminar apellido</a>
+            <a onclick="addSurname()" id="add-surname">Añadir apellido</a>
+        </div>
+    </section>
+    <a style="position: absolute; bottom: 25px; right: 25px; width: 150px; height: 50px; background-color: darkolivegreen; display: flex; align-items: center; justify-content: center; color: white;
+              font-weight: 500; border-radius: 5px; cursor: pointer"
+       onclick="getId()">Entrar</a>
+
+
+    <script>
+        var surnamesCount = 1;
+
+        function addSurname() {
+            document.getElementById('remove-surname').className = "elementShow";
+            if(surnamesCount < 3){
+                surnamesCount++
+                let createdLabel = document.createElement('label');
+                document.getElementById('added-surnames').appendChild(createdLabel);
+                createdLabel.innerText = 'Apellido ' + surnamesCount
+                createdLabel.for = 'surname-'+ surnamesCount
+
+                createdInput = document.createElement('input');
+                document.getElementById('added-surnames').appendChild(createdInput);
+                createdInput.placeholder = 'Ingresá tu apellido N°' + surnamesCount;
+                createdInput.id = 'surname-' + surnamesCount;
+                createdInput.className = 'surname';
+            }
+        }
+        function removeSurname(){
+            if (surnamesCount > 1){
+                surnamesCount--
+                let addedSurnames = document.getElementById('added-surnames');
+                addedSurnames.removeChild(addedSurnames.lastElementChild);
+                addedSurnames.removeChild(addedSurnames.lastElementChild);
+            }
+            if(surnamesCount <= 1){
+                document.getElementById('remove-surname').className = "elementHide";
+            }
+        }
+    </script>
+</body>
+</html>
