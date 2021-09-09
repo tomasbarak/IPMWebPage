@@ -19,24 +19,11 @@ function getId(){
         console.log(this.responseText)
     }
     var req = new XMLHttpRequest()
-    let surname1 = document.getElementById('surname-1');
-    let surname2 = document.getElementById('surname-2');
-    let surname3 = document.getElementById('surname-3');
+    let surname = document.getElementById('surname-1').value.trim();
     let name = document.getElementById('name');
     let secname = document.getElementById('secname');
-    let surnameMaster;
-    if(surname1 && !surname2 && !surname3){
-        surnameMaster = surname1.value.replace(/\s/g, '').trim().toUpperCase();
-        console.log('existe el 1. Valor: ' + surnameMaster)
-    }else if(surname1 && surname2 && !surname3){
-        surnameMaster = surname1.value.replace(/\s/g, '').trim().toUpperCase() + ' ' + surname2.value.replace(/\s/g, '').trim().toUpperCase();
-        console.log('existe el 1 y 2. Valores: ' + surnameMaster)
-    }else if(surname1 && surname2 && surname3){
-        surnameMaster = surname1.value.replace(/\s/g, '').trim().toUpperCase() + ' ' + surname2.value.replace(/\s/g, '').trim().toUpperCase() + ' ' + surname3.value.replace(/\s/g, '').trim().toUpperCase();
-        console.log('existe el 1, 2 y 3')
-    }
 
-    req.open('GET', "https://ipmalumns.herokuapp.com/returnid?name=" + name.value + '&secname=' + secname.value.trim() + '&surname=' + surnameMaster)
+    req.open('GET', "https://ipmalumns.herokuapp.com/returnid?name=" + name.value + '&secname=' + secname.value.trim() + '&surname=' + surname)
     req.onreadystatechange = function(){
         if (req.readyState === 4) {
             if(req.status === 200)

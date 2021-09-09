@@ -1,10 +1,11 @@
 html, body {
     display: flex;
-    width: 100%;
-    height: 100%;
+    width: 100vw !important;
+    height: auto !important;
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
+    background-color: #192028;
 }
 
 * {
@@ -12,23 +13,48 @@ html, body {
     padding: 0;
     font-family: 'Lato', sans-serif;
 }
+#enterbtn{
+    width: 150px; 
+    height: 50px; 
+    background-color: #142d74; 
+    display: flex; 
+    margin-top: 25px;
+    position: relative;
+    align-items: center; 
+    justify-content: center; 
+    color: white;
+    font-weight: 500; 
+    border-radius: 5px; 
+    cursor: pointer;
+}
 #banner{
     background-image: url("img/NodeBanners.jpg");
-    width: 100vw;
+    width: 100%;
     height: 35vh;
+    position: absolute;
+    top: 0;
+    left: 0;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-clip: border-box;
     background-size: cover;
     background-position-y: -200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#banner-logo{
+    height: 25vh;
 }
 #formContainer{
     width: 50%;
-    height: 65vh;
+    margin-top: 35vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 5px;
 }
 label{
     width: 300px;
@@ -36,6 +62,7 @@ label{
     margin-top: 25px;
     margin-bottom: 5px;
     font-weight: bold;
+    color: white;
 }
 input{
     width: 300px;
@@ -43,58 +70,31 @@ input{
     box-sizing: border-box;
     padding: 5px;
     border-radius: 3px;
-    border: 1px solid #d3d3d3;
+    border: 1px solid #0d1014;
+    background-color: #0d1014;
+    color: white;
 }
 input:focus{
     outline: none;
     transition-duration: .5s;
     border: 1px solid #4169E1;
 }
-#add-surname {
-    height: 50px;
-    width: fit-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #4169E1;
-    margin-top: 25px;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    box-sizing: border-box;
-    padding: 0 10px;
-}
-#added-surnames{
-    display: flex;
-    flex-direction: column;
-}
-#remove-surname{
-    height: 50px;
-    width: fit-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #D2042D;
-    margin-top: 25px;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    box-sizing: border-box;
-    margin-right: 15px;
-    padding: 0 10px;
-}
-#added-surnames{
-    display: flex;
-}
-#surname-btns-cont {
-    display: flex;
-    flex-direction: row;
-}
 .elementHide{
     visibility: hidden;
 }
 .elementShow{
     visibility: visible;
+}
+
+#loading-page{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #192028;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
