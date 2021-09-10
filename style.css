@@ -28,17 +28,18 @@ html, body {
     cursor: pointer;
 }
 #banner{
-    background-image: url("img/NodeBanners.jpg");
     width: 100%;
     height: 35vh;
     position: absolute;
     top: 0;
     left: 0;
+    background-color: #0d1014;
+    /* background-image: url("img/NodeBanners.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-clip: border-box;
     background-size: cover;
-    background-position-y: -200px;
+    background-position-y: -200px;*/
     display: flex;
     align-items: center;
     justify-content: center;
