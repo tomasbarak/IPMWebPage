@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
 <head>
     <meta charset="UTF-8">
     <title>Inicio</title>
@@ -9,61 +9,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <script src="requests.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <meta name="google" content="notranslate">
 </head>
 <body>
-    <div id="banner">
+    <section id="loading-page" class="elementShow">
+        <lottie-player src="https://res.cloudinary.com/dt3ct7mak/raw/upload/v1631161818/vp46cfr6uk9utqikbduh.json" background="transparent"  speed="1"  style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+    </section>
 
+    <div id="banner">
+        <img id="banner-logo" src="img/WireWorld.png" alt="Instituto Politécnico Modelo">
     </div>
     <section id="formContainer">
         <label for="name">Nombre</label>
         <input placeholder="Ingresá tu primer nombre" id="name">
-        <label for="secname">Segundo Nombre</label>
+        <label for="secname">Segundo Nombre (opcional)</label>
         <input placeholder="Ingresá tu segundo nombre" id="secname">
-        <label for="surname-1">Apellido 1</label>
-        <input placeholder="Ingresá tu apellido N°1" id="surname-1" class="surname">
+        <label for="surname">Apellido(s)</label>
+        <input placeholder="Ingresá tu(s) apellido(s)" id="surname-1" class="surname">
         <div id="added-surnames">
-
         </div>
-        <div id="surname-btns-cont">
-            <a class="elementHide" onclick="removeSurname()" id="remove-surname">Eliminar apellido</a>
-            <a onclick="addSurname()" id="add-surname">Añadir apellido</a>
-        </div>
+        <a id="enterbtn"onclick="getId()">Entrar</a>
     </section>
-    <a style="position: absolute; bottom: 25px; right: 25px; width: 150px; height: 50px; background-color: darkolivegreen; display: flex; align-items: center; justify-content: center; color: white;
-              font-weight: 500; border-radius: 5px; cursor: pointer"
-       onclick="getId()">Entrar</a>
-
-
-    <script>
-        var surnamesCount = 1;
-
-        function addSurname() {
-            document.getElementById('remove-surname').className = "elementShow";
-            if(surnamesCount < 3){
-                surnamesCount++
-                let createdLabel = document.createElement('label');
-                document.getElementById('added-surnames').appendChild(createdLabel);
-                createdLabel.innerText = 'Apellido ' + surnamesCount
-                createdLabel.for = 'surname-'+ surnamesCount
-
-                createdInput = document.createElement('input');
-                document.getElementById('added-surnames').appendChild(createdInput);
-                createdInput.placeholder = 'Ingresá tu apellido N°' + surnamesCount;
-                createdInput.id = 'surname-' + surnamesCount;
-                createdInput.className = 'surname';
-            }
-        }
-        function removeSurname(){
-            if (surnamesCount > 1){
-                surnamesCount--
-                let addedSurnames = document.getElementById('added-surnames');
-                addedSurnames.removeChild(addedSurnames.lastElementChild);
-                addedSurnames.removeChild(addedSurnames.lastElementChild);
-            }
-            if(surnamesCount <= 1){
-                document.getElementById('remove-surname').className = "elementHide";
-            }
-        }
-    </script>
 </body>
 </html>
