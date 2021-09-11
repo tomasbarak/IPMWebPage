@@ -96,13 +96,15 @@ input:focus{
     border: 1px solid #4169E1;
 }
 .elementHide{
-    transition: 1s;
+    transition: .25s;
     height: 35vh !important;
+    opacity: 0;
     visibility: hidden;
 }
 .elementShow{
-    transition: 1s;
+    transition: .25s;
     height: 100vh !important;
+    opacity: 1;
     visibility: visible;
 }
 
@@ -141,8 +143,6 @@ input:focus{
         margin-top: 15px;
     }
     .elementHide{
-        transition: 1s;
         height: 25vh !important;
-        visibility: hidden;
     }
 }

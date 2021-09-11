@@ -5,14 +5,21 @@
     <title>Trimestre 1</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
+    <link href="tableStyle.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <script src="requests.js"></script>
+    <script src="showContent.js"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <meta name="google" content="notranslate">
 </head>
-<body>
+<body id="dataShow" onload="setLoading(true); getTrim1(sessionStorage.getItem('id'))">
+<section id="loading-page" class="elementShow">
+    <lottie-player src="https://res.cloudinary.com/dt3ct7mak/raw/upload/v1631161818/vp46cfr6uk9utqikbduh.json"
+                   background="transparent" speed="1" style="width: 300px; height: 300px;" loop
+                   autoplay></lottie-player>
+</section>
 
 </body>
 </html>
