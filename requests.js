@@ -46,7 +46,7 @@ function getTrim1Bckp(id) {
 }
     function getId() {
         var req = new XMLHttpRequest()
-        let surname = document.getElementById('surname-1').value.trim();
+        let surname = document.getElementById('surname').value.trim();
         let name = document.getElementById('name');
         let secname = document.getElementById('secname');
         setLoading(true);

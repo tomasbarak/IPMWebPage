@@ -28,7 +28,7 @@
         <label for="secname">Segundo Nombre (opcional)</label>
         <input placeholder="Ingresá tu segundo nombre" id="secname">
         <label for="surname">Apellido(s)</label>
-        <input placeholder="Ingresá tu(s) apellido(s)" id="surname-1" class="surname">
+        <input placeholder="Ingresá tu(s) apellido(s)" id="surname" class="surname">
         <div id="added-surnames">
         </div>
         <a id="enterbtn"onclick="getId()">Entrar</a>
@@ -36,7 +36,7 @@
 
     <script>
         // Get the input field
-        let input = document.getElementById("surname-1");
+        let input = document.getElementById("surname");
         // Execute a function when the user releases a key on the keyboard
         input.addEventListener("keyup", function(event) {
             // Number 13 is the "Enter" key on the keyboard
