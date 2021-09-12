@@ -120,6 +120,77 @@ input:focus{
     align-items: center;
     justify-content: center;
 }
+#action-notifier{
+    z-index: 100;
+}
+#action-notifier.extended{
+    transition: 1s;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 275px;
+    white-space: nowrap;
+    min-width: 55px;
+    min-height: 55px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: white;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+    overflow: hidden;
+}
+#action-notifier.contracted{
+    transition-duration: 1s;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 55px;
+    white-space: nowrap;
+    min-width: 55px;
+    min-height: 55px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: white;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+    overflow: hidden;
+}
+#action-ntf-text{
+    color: #0d1014;
+    margin-right: 15px;
+    display: flex;
+}
+.text-no-visible{
+    transition-delay: .5s;
+    transition-duration: .5s;
+    position: absolute;
+    right: 45px;
+    opacity: 0;
+}
+.text-visible{
+    transition-delay: 0s;
+    transition-duration: .5s;
+    position: relative;
+    opacity: 1;
+}
+.opacity1{
+    transition-duration: 1s;
+    transition-delay: 1s;
+    opacity: 1;
+}
+.opacity0{
+    transition-duration: 1s;
+    transition-delay: 1s;
+    opacity: 0;
+}
 @media screen and (max-width: 480px){
     #banner{
         height: 25vh;

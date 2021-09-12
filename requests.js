@@ -25,6 +25,8 @@ function getTrim1(id) {
     req.send()
 }
 function getTrim1Bckp(id) {
+    setMakingBckpNtfVisibility(true);
+    setMakingBckpNtf(true)
     var req = new XMLHttpRequest();
     console.log("requesting from my database");
     req.open('GET', "https://ipmalumns.herokuapp.com/trim1bckp?id=" + id)
@@ -36,6 +38,25 @@ function getTrim1Bckp(id) {
                 constructTable(JSONResponse);
                 console.log(this.responseText)
                 setLoading(false)
+                setMakingBckpNtfVisibility(false);
+            }
+            else {
+                console.log("Error loading page\n");
+            }
+        }
+    };
+    req.send()
+}
+function makeBackgroundBackup(id){
+    setMakingBckpNtfVisibility(true);
+    setMakingBckpNtf(true)
+    var req = new XMLHttpRequest();
+    console.log("requesting from my database");
+    req.open('GET', "https://ipmalumns.herokuapp.com/trim1bckp?id=" + id)
+    req.onreadystatechange = function () {
+        if (req.readyState === 4) {
+            if (req.status === 200) {
+                setMakingBckpNtfVisibility(false);
             }
             else {
                 console.log("Error loading page\n");
@@ -73,5 +94,36 @@ function getTrim1Bckp(id) {
             loadingElement.className = 'elementShow';
         } else {
             loadingElement.className = 'elementHide';
+        }
+    }
+
+    function setMakingBckpNtf(makingBackup) {
+        if (window.location.pathname.includes('trim1.html')) {
+            if (makingBackup) {
+                document.getElementById('action-notifier').classList.remove('contracted')
+                document.getElementById('action-notifier').classList.add('extended')
+                document.getElementById('action-ntf-text').classList.remove('text-no-visible')
+                document.getElementById('action-ntf-text').classList.add('text-visible')
+
+                setTimeout(function () {
+                    setMakingBckpNtf(false)
+                }, 5000)
+            } else {
+                document.getElementById('action-notifier').classList.remove('extended')
+                document.getElementById('action-notifier').classList.add('contracted')
+                document.getElementById('action-ntf-text').classList.remove('text-visible')
+                document.getElementById('action-ntf-text').classList.add('text-no-visible')
+            }
+        }
+    }
+    function setMakingBckpNtfVisibility(isVisible){
+        if(window.location.pathname.includes('trim1.html')){
+            if(isVisible){
+                document.getElementById('action-notifier').classList.remove('opacity0')
+                document.getElementById('action-notifier').classList.add('opacity1')
+            }else{
+                document.getElementById('action-notifier').classList.remove('opacity1')
+                document.getElementById('action-notifier').classList.add('opacity0')
+            }
         }
     }

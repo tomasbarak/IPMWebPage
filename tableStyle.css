@@ -12,6 +12,7 @@ td {
 th {
     background: #395870;
     color: #fff;
+    border: 1px solid #cecfd5;
 }
 tbody tr:nth-child(even) {
     background: #f0f0f2;
