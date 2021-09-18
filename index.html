@@ -1,52 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" translate="no">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Inicio</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <title>Iniciar Sesion</title>
+    <link href="signin-style.css" rel="stylesheet">
+    <script src="auth.js"></script>
     <script src="requests.js"></script>
+    <script src="showContent.js"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <meta name="google" content="notranslate">
 </head>
 <body>
     <section id="loading-page" class="elementHide">
         <lottie-player src="https://res.cloudinary.com/dt3ct7mak/raw/upload/v1631161818/vp46cfr6uk9utqikbduh.json" background="transparent"  speed="1"  style="width: 300px; height: 300px;" loop autoplay></lottie-player>
     </section>
 
-    <div id="banner">
-        <a id="banner-ipm-logo">Instituto Politécnico Modelo</a>
-        <img id="ipm-logo"src="img/IPM.png" alt/>
-        <lottie-player src="https://res.cloudinary.com/dt3ct7mak/raw/upload/v1631161818/vp46cfr6uk9utqikbduh.json" background="transparent"  speed="1"  style="width: 300px; height: 300px;" loop autoplay></lottie-player>
-    </div>
-    <section id="formContainer">
-        <label for="name">Nombre</label>
-        <input placeholder="Ingresá tu primer nombre" id="name">
-        <label for="secname">Segundo Nombre (opcional)</label>
-        <input placeholder="Ingresá tu segundo nombre" id="secname">
-        <label for="surname">Apellido(s)</label>
-        <input placeholder="Ingresá tu(s) apellido(s)" id="surname" class="surname">
-        <div id="added-surnames">
-        </div>
-        <a id="enterbtn"onclick="getId()">Entrar</a>
-    </section>
+        <label for="password">Código de acceso</label>
+        <input placeholder="Ingresá el código de acceso" id="password">
 
-    <script>
-        // Get the input field
-        let input = document.getElementById("surname");
-        // Execute a function when the user releases a key on the keyboard
-        input.addEventListener("keyup", function(event) {
-            // Number 13 is the "Enter" key on the keyboard
-            if (event.keyCode === 13) {
-                // Cancel the default action, if needed
-                event.preventDefault();
-                // Trigger the button element with a click
-                document.getElementById("enterbtn").click();
-            }
-        });
-    </script>
+        <a id="enterbtn"onclick="auth(document.getElementById('password').value)">Entrar</a>
+        <script>
+            // Get the input field
+            let input = document.getElementById("password");
+            // Execute a function when the user releases a key on the keyboard
+            input.addEventListener("keyup", function(event) {
+                // Number 13 is the "Enter" key on the keyboard
+                if (event.keyCode === 13) {
+                    // Cancel the default action, if needed
+                    event.preventDefault();
+                    // Trigger the button element with a click
+                    document.getElementById("enterbtn").click();
+                }
+            });
+        </script>
 </body>
 </html>
