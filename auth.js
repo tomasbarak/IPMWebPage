@@ -13,6 +13,6 @@ function auth(code){
   fetch(url, options)
     .then(response => response.text())
     .then(data => {
-      console.log(data)
+      window.location = "search.html"
     });
 }

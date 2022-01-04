@@ -7,6 +7,8 @@ function getTrim1(id) {
                 let stringResponse = this.responseText;
                 if (stringResponse) {
                     let stringResponse = this.responseText;
+                    console.log(stringResponse)
+
                     let JSONResponse = JSON.parse(stringResponse);
                     constructTable(JSONResponse);
                     console.log(this.responseText)
